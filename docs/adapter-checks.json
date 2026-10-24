@@ -1,0 +1,215 @@
+{
+  "status": "passed_targeted_delivery_integration",
+  "goldenCases": 24,
+  "cases": [
+    {
+      "asset": "BTCUSDT",
+      "horizon": 5,
+      "model": "MatureDecay-prior",
+      "pUpEqualWithin": 1e-15,
+      "directionEqual": true,
+      "maturityEqual": true
+    },
+    {
+      "asset": "BTCUSDT",
+      "horizon": 5,
+      "model": "Common-v3-majority600",
+      "pUpEqualWithin": 1e-15,
+      "directionEqual": true,
+      "maturityEqual": true
+    },
+    {
+      "asset": "BTCUSDT",
+      "horizon": 5,
+      "model": "VT-EB",
+      "pUpEqualWithin": 1e-15,
+      "directionEqual": true,
+      "maturityEqual": true
+    },
+    {
+      "asset": "BTCUSDT",
+      "horizon": 20,
+      "model": "MatureDecay-prior",
+      "pUpEqualWithin": 1e-15,
+      "directionEqual": true,
+      "maturityEqual": true
+    },
+    {
+      "asset": "BTCUSDT",
+      "horizon": 20,
+      "model": "Common-v3-majority600",
+      "pUpEqualWithin": 1e-15,
+      "directionEqual": true,
+      "maturityEqual": true
+    },
+    {
+      "asset": "BTCUSDT",
+      "horizon": 20,
+      "model": "VT-EB",
+      "pUpEqualWithin": 1e-15,
+      "directionEqual": true,
+      "maturityEqual": true
+    },
+    {
+      "asset": "ETHUSDT",
+      "horizon": 5,
+      "model": "MatureDecay-prior",
+      "pUpEqualWithin": 1e-15,
+      "directionEqual": true,
+      "maturityEqual": true
+    },
+    {
+      "asset": "ETHUSDT",
+      "horizon": 5,
+      "model": "Common-v3-majority600",
+      "pUpEqualWithin": 1e-15,
+      "directionEqual": true,
+      "maturityEqual": true
+    },
+    {
+      "asset": "ETHUSDT",
+      "horizon": 5,
+      "model": "VT-EB",
+      "pUpEqualWithin": 1e-15,
+      "directionEqual": true,
+      "maturityEqual": true
+    },
+    {
+      "asset": "ETHUSDT",
+      "horizon": 20,
+      "model": "MatureDecay-prior",
+      "pUpEqualWithin": 1e-15,
+      "directionEqual": true,
+      "maturityEqual": true
+    },
+    {
+      "asset": "ETHUSDT",
+      "horizon": 20,
+      "model": "Common-v3-majority600",
+      "pUpEqualWithin": 1e-15,
+      "directionEqual": true,
+      "maturityEqual": true
+    },
+    {
+      "asset": "ETHUSDT",
+      "horizon": 20,
+      "model": "VT-EB",
+      "pUpEqualWithin": 1e-15,
+      "directionEqual": true,
+      "maturityEqual": true
+    },
+    {
+      "asset": "SPY",
+      "horizon": 5,
+      "model": "MatureDecay-prior",
+      "pUpEqualWithin": 1e-15,
+      "directionEqual": true,
+      "maturityEqual": true
+    },
+    {
+      "asset": "SPY",
+      "horizon": 5,
+      "model": "Common-v3-majority600",
+      "pUpEqualWithin": 1e-15,
+      "directionEqual": true,
+      "maturityEqual": true
+    },
+    {
+      "asset": "SPY",
+      "horizon": 5,
+      "model": "VT-EB",
+      "pUpEqualWithin": 1e-15,
+      "directionEqual": true,
+      "maturityEqual": true
+    },
+    {
+      "asset": "SPY",
+      "horizon": 20,
+      "model": "MatureDecay-prior",
+      "pUpEqualWithin": 1e-15,
+      "directionEqual": true,
+      "maturityEqual": true
+    },
+    {
+      "asset": "SPY",
+      "horizon": 20,
+      "model": "Common-v3-majority600",
+      "pUpEqualWithin": 1e-15,
+      "directionEqual": true,
+      "maturityEqual": true
+    },
+    {
+      "asset": "SPY",
+      "horizon": 20,
+      "model": "VT-EB",
+      "pUpEqualWithin": 1e-15,
+      "directionEqual": true,
+      "maturityEqual": true
+    },
+    {
+      "asset": "QQQ",
+      "horizon": 5,
+      "model": "MatureDecay-prior",
+      "pUpEqualWithin": 1e-15,
+      "directionEqual": true,
+      "maturityEqual": true
+    },
+    {
+      "asset": "QQQ",
+      "horizon": 5,
+      "model": "Common-v3-majority600",
+      "pUpEqualWithin": 1e-15,
+      "directionEqual": true,
+      "maturityEqual": true
+    },
+    {
+      "asset": "QQQ",
+      "horizon": 5,
+      "model": "VT-EB",
+      "pUpEqualWithin": 1e-15,
+      "directionEqual": true,
+      "maturityEqual": true
+    },
+    {
+      "asset": "QQQ",
+      "horizon": 20,
+      "model": "MatureDecay-prior",
+      "pUpEqualWithin": 1e-15,
+      "directionEqual": true,
+      "maturityEqual": true
+    },
+    {
+      "asset": "QQQ",
+      "horizon": 20,
+      "model": "Common-v3-majority600",
+      "pUpEqualWithin": 1e-15,
+      "directionEqual": true,
+      "maturityEqual": true
+    },
+    {
+      "asset": "QQQ",
+      "horizon": 20,
+      "model": "VT-EB",
+      "pUpEqualWithin": 1e-15,
+      "directionEqual": true,
+      "maturityEqual": true
+    }
+  ],
+  "futurePrefixAndNaiveAsOfRejections": 8,
+  "newResearchExperiment": false,
+  "newTrainingOrGPUOrNetwork": false,
+  "fullHistoricalInferenceRerun": false,
+  "description": "24 single-prefix adapter checks against existing saved 2025 outputs; original research dataset not redistributed",
+  "exampleOutput": {
+    "model": "MatureDecay-prior",
+    "asset": "BTCUSDT",
+    "horizonBars": 5,
+    "signalAvailableAtUTC": "2025-01-02T00:00:00+00:00",
+    "asOfUTC": "2025-01-02T00:00:00+00:00",
+    "trainedThrough": "2025-01-01T00:00:00+00:00",
+    "trainingRows": 600,
+    "pUp": 0.5610500255463285,
+    "predictedDirection": 1,
+    "status": "research_only_not_calibrated_win_probability"
+  }
+}

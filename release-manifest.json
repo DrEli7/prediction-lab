@@ -1,0 +1,92 @@
+{
+  "release": "2026-10-24-frozen-statistical-v1",
+  "files": [
+    {
+      "path": ".gitignore",
+      "sha256": "0d6371144eb02edd58c59094684fa803988525d4a1add84455b2751c54dd2381",
+      "bytes": 81
+    },
+    {
+      "path": "docs/adapter-checks.json",
+      "sha256": "f5277aa88e91f6873c677f14e0724906634c69a4e4e34d8317fe787f9f0b01e5",
+      "bytes": 5317
+    },
+    {
+      "path": "docs/DELIVERY_CHECKS.md",
+      "sha256": "3c0f43e853fd54c731727b1b8be63061669523447f1f730603c95aff9fc45466",
+      "bytes": 1120
+    },
+    {
+      "path": "docs/HANDOFF.md",
+      "sha256": "e24311c4a136ff57ffdecbedf9c8d22c6569e6d98aefc4a79dbc8fc057cd2a59",
+      "bytes": 3407
+    },
+    {
+      "path": "docs/RESUME.md",
+      "sha256": "0ec8cb2197a1ac75c7f88cd140f002e4afc49041d31e3d623bf97308b47462b5",
+      "bytes": 2303
+    },
+    {
+      "path": "docs/source-provenance.json",
+      "sha256": "a79bdc50c83376151e5d98ddbadf8a6569100c25cf747dd5137dee9393797d69",
+      "bytes": 2294
+    },
+    {
+      "path": "LICENSE",
+      "sha256": "ec09884a4e1d1fb3557520006f076a0f6c27013cc1bd5e7b42efde5e9a1f1d60",
+      "bytes": 1063
+    },
+    {
+      "path": "model-config.json",
+      "sha256": "bfc04cbb82d069daab3843842c7362827d77778f1d189fd28a0ef71fe8b18b7e",
+      "bytes": 1123
+    },
+    {
+      "path": "predict.py",
+      "sha256": "d85bf1066e566ccdac06dee0e6c0b6d3cca98f2d9f36a1c69861fb6423046416",
+      "bytes": 4735
+    },
+    {
+      "path": "README.md",
+      "sha256": "5c609511bdc4292b019f7d0e4f30d3f6c77d236332c57c6b3700cd214ee28e73",
+      "bytes": 5428
+    },
+    {
+      "path": "requirements.txt",
+      "sha256": "0c94e7fbe0b02fb405364cf9e101a729a4ce70afe58ff45ce6849c531a2d45c0",
+      "bytes": 44
+    },
+    {
+      "path": "results/frozen_2025_predictions.csv",
+      "sha256": "cb9cd7353273df4c0690e788ac24620d208f778885dcd05f201a505288d38d04",
+      "bytes": 173704
+    },
+    {
+      "path": "results/historical_comparison.json",
+      "sha256": "405503c43d153ea09428505d409dc43f63d24d8ea1ea0626a77bf17a9139aa5e",
+      "bytes": 1850
+    },
+    {
+      "path": "vendor/__init__.py",
+      "sha256": "13b20fa699ae7edf02e9e80f6fc05aa29a369006ece123646267f02ad4f26ad5",
+      "bytes": 90
+    },
+    {
+      "path": "vendor/mature_decay_core.py",
+      "sha256": "77171ce34b14e1b22df84f1f8854b1ae6b42ba38322624394f02e95a9cc4a00e",
+      "bytes": 9981
+    },
+    {
+      "path": "vendor/vt_eb_core.py",
+      "sha256": "f4888e8c3656345928fef7587f3c65e9b6fc68b310fac922a8ec12275435fccc",
+      "bytes": 11848
+    },
+    {
+      "path": "verify_delivery.py",
+      "sha256": "3ae765662f19c16fdc846a6304b7e6caba50a41e2e21739ef52e12bea294b1d4",
+      "bytes": 2958
+    }
+  ],
+  "manifestSelfExcluded": true,
+  "oldResearchTreeUnmodifiedByPublication": true
+}

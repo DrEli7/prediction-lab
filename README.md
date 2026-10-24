@@ -1,2 +1,69 @@
-# prediction-lab
-Reproducible crypto and US ETF direction research: frozen statistical models, honest historical benchmarks, and a compact handoff. Research paused.
+# Prediction Lab
+
+数字货币与美股 ETF 方向预测研究：冻结统计模型、完整历史对照、可复核输出与离线推理。**研究已由作者主动暂停；本仓库是现有成果交付，不会自动运行研究或调用模型服务。** MIT 开源。
+
+## 实际交付
+
+- `MatureDecay-prior`：严格使用已成熟收益标签的时间衰减 Beta 平滑模型，作为主要研究模型交付。
+- `VT-EB`：波动率/趋势状态与层级经验贝叶斯平滑，保留之前约 58% 的版本。
+- `Common-v3-majority600`：滚动多数类参考，公开保留其更高的历史准确率。
+- `predict.py`：直接复用 `vendor/` 中逐字节保留的原始科学实现，提供只接收已完成行情前缀的 CSV 离线入口。
+- `results/`：3 个交付版本共 1,536 条冻结预测/方向真值，以及包含 Kronos 成败的历史成绩表。
+- `verify_delivery.py`：标准库即可校验文件哈希、同批样本、512 条完整覆盖、时间边界与原成绩。
+- [本次说明与新对话交接](docs/HANDOFF.md)、[简历项目介绍](docs/RESUME.md)。
+
+## 历史结果必须这样解读
+
+同一批 **2025 年已观察历史数据**，BTCUSDT / ETHUSDT / SPY / QQQ × 5 / 20 bar × 64 个共同起点，共 **512 条/版本，覆盖率 100%**。数字货币使用日 bar，ETF 使用交易日 bar。
+
+| 版本 | 正确/总数 | 方向准确率 | 8 单元宏平均平衡准确率 | Brier，越低越好 |
+|---|---:|---:|---:|---:|
+| 滚动多数基线 | 304/512 | **59.375%** | 49.136% | 0.231236 |
+| MatureDecay-prior | 303/512 | **59.180%** | 48.954% | 0.236538 |
+| 旧 VT-EB | 301/512 | **58.789%** | 48.285% | 0.239358 |
+| Delayed-Hedge，历史对照 | 298/512 | 58.203% | 49.047% | 0.246956 |
+| 训练后 Kronos，历史对照 | 259/512 | 50.586% | 46.563% | 0.331376 |
+| 原始 Kronos，历史对照 | 210/512 | 41.016% | 49.853% | 0.413790 |
+
+**最好的非基线交付模型是 59.18%；简单多数基线仍高 1 条。没有一个版本在这批数据上达到 60%（至少需要 308/512）。** 宏平衡准确率不足 50%，不能把总体准确率解释为已经获得稳健的涨跌辨别能力。`pUp` 是研究概率分数，尚未证明经过独立校准，不能理解为交易胜率。历史样本已被多轮研究观察，存在选择偏差，绝不是新盲测，也没有收益、扣费或实盘盈利证据。
+
+完整行级输出仅包含模型预测和公开市场方向标签，不包含原始行情价格、账户、个人交易数据、聊天记录或本机日志。数据提供商的原始行情没有随包再分发，用户应自行取得有合法使用权限的行情。
+
+## 快速验证，无需安装依赖
+
+```bash
+python verify_delivery.py
+```
+
+这一步只核验已存在的交付记录，不训练、不重新预测、不联网。文件修改后应生成自己的新版本清单；不要把修改版继续标成原封存版本。
+
+## 离线预测
+
+建议 Python 3.12。原研究环境：NumPy 2.5.4、Pandas 2.2.2、SciPy 1.18.1。
+
+```bash
+python -m venv .venv
+# 激活虚拟环境后：
+python -m pip install -r requirements.txt
+python predict.py --csv your_completed_prefix.csv --asset BTCUSDT --horizon 5 --as-of 2026-10-24T00:00:00Z
+python predict.py --csv your_completed_prefix.csv --asset SPY --horizon 20 --as-of 2026-10-23T20:00:00Z --model VT-EB
+python predict.py --csv your_completed_prefix.csv --asset QQQ --horizon 5 --as-of 2026-10-23T20:00:00Z --model Common-v3-majority600
+```
+
+CSV 至少有 `date,available,close`，至少 400 条已完成 bar，按时间严格递增、无重复、价格为正且有限。`available` 是该 bar 在研究中认为可用的时间，必须带时区，所有行均不得晚于 `--as-of`。最后一行是信号 bar，输出对应其后 5/20 条 bar 的累计方向。日期和可用时间应由用户按市场真实收盘/接收规则准备；本入口不能替用户证明数据在过去确实已经收到。
+
+```csv
+date,available,close
+2026-01-01,2026-01-02T00:00:00Z,90000.0
+2026-01-02,2026-01-03T00:00:00Z,90500.0
+```
+
+上面只展示格式，两行不足以预测。程序默认只打印 JSON，不下单、不调 API、不下载权重。单个资产单个期限的统计计算通常无需 GPU；这些模型的状态来自输入历史窗口，没有神经网络权重文件。
+
+## 方法与边界
+
+MatureDecay 的训练起点 `t` 仅允许 `t+h<s`，其中 `s` 是信号行；窗口上限 600，零收益训练标签剔除，衰减半衰期 252 bar，标签权重 `2**(-(s-(t+h)-1)/252)/h`，Beta(1,1) 平滑。VT-EB 使用原冻结的 756 bar 窗口及 5/20/60 bar 趋势、20/60 波动率比特征，按层级状态平滑频率。概率等于 0.5 时两个原版本均预测上涨。
+
+历史评估使用起点同步时间块 bootstrap 与 Holm 多重比较，避免把重叠期限和跨资产记录当作独立样本；本轻量交付只复核已冻结行与成绩，不重新跑大规模置信区间。两个模型的原独立审计已通过，哈希来源见 [source-provenance.json](docs/source-provenance.json)。交付适配器的检查范围和实际命令见 [交付检查说明](docs/DELIVERY_CHECKS.md)。
+
+Kronos 原项目及其权重**未包含在本仓库**，不将其重新许可为 MIT。本仓库只发布本项目自行实现的统计代码、适配层、文档和研究结果。训练过的 Kronos 本地权重仍保留在原研究目录，未作为最佳模型推广。

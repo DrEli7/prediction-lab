@@ -1,0 +1,40 @@
+{
+  "assets": [
+    "BTCUSDT",
+    "ETHUSDT",
+    "SPY",
+    "QQQ"
+  ],
+  "horizons": [
+    5,
+    20
+  ],
+  "primaryModel": "MatureDecay-prior",
+  "highestHistoricalAccuracyReference": "Common-v3-majority600",
+  "legacyModel": "VT-EB",
+  "matureDecay": {
+    "lookbackBars": 600,
+    "minimumTrainingRowsAtDelivery": 250,
+    "halfLifeLabelAgeBars": 252,
+    "betaPrior": [
+      1,
+      1
+    ],
+    "labelWeight": "2**(-(s-(t+h)-1)/252)/h",
+    "strictTrainingEndpoint": "t+h<s",
+    "excludeFlatTrainingLabels": true
+  },
+  "VT-EB": {
+    "maxTrainingOriginalBars": 756,
+    "minimumTrainRows": 250,
+    "effectiveWeight": "1/h per matured label, a conservative regularization heuristic for overlap, not an independence claim",
+    "hierarchyPseudoMass": 8,
+    "variancePseudoMass": 16,
+    "threshold": 0.5,
+    "probabilityTie": "pUp>=0.5 predicts +1",
+    "failedPredictionFallback": "Unsmooth majority frequency of selected matured labels at threshold 0.5; retain row and failure text"
+  },
+  "threshold": 0.5,
+  "pUpTieDirection": 1,
+  "noExternalModelOrAPICalls": true
+}

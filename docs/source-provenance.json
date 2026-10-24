@@ -1,0 +1,57 @@
+{
+  "method": "Byte-preserved first-party scientific source and row-for-row frozen prediction export; no research rerun",
+  "sources": [
+    {
+      "file": "vendor/mature_decay_core.py",
+      "source": "research-team/statistical/batch-2/core.py",
+      "sha256": "77171ce34b14e1b22df84f1f8854b1ae6b42ba38322624394f02e95a9cc4a00e",
+      "scientificSourceUnchanged": true
+    },
+    {
+      "file": "vendor/vt_eb_core.py",
+      "source": "research-team/statistical/study.py",
+      "sha256": "f4888e8c3656345928fef7587f3c65e9b6fc68b310fac922a8ec12275435fccc",
+      "scientificSourceUnchanged": true
+    },
+    {
+      "source": "research-team/statistical/batch-2/transfer-predictions.json",
+      "sha256": "e9ca9ebe22d77d6e6aac76b0413ad895d4727a8920a93c1650bef9200da10950",
+      "redistributed": false
+    },
+    {
+      "source": "research-team/statistical/batch-2/transfer-truth.json",
+      "sha256": "e0d92d9b6ecca17227eedb625e4111ee8c22a6352dde3483d21c719fcd4a9eeb",
+      "redistributed": false
+    },
+    {
+      "source": "research-team/statistical/dev-predictions.json",
+      "sha256": "ccfc77b5b828336338f0fe9255372b528d87d4edbf426b24a13e3514d4fc3021",
+      "redistributed": false
+    },
+    {
+      "source": "research-team/statistical/dev-truth.json",
+      "sha256": "663cacf8a974fd27383167709d60713aaf377855ae03e9caad1a5d6558597912",
+      "redistributed": false
+    },
+    {
+      "source": "research-team/statistical/batch-2/transfer-scores.json",
+      "sha256": "b038a0861111a0f3f9de8c80906019744d46a062f71f9465582199b9bb78118a",
+      "redistributed": false
+    },
+    {
+      "source": "research-team/statistical/batch-2/independent-audit.json",
+      "sha256": "09b86bde6bcfa99c36c3b3fabd6a15649cad6fdf1e7f84c3f6d4e94545531245",
+      "redistributed": false
+    },
+    {
+      "source": "research-team/statistical/independent-audit.json",
+      "sha256": "f23f2dcdb9e93f6eda4a954f412a0bdf816342c69441788d410b1cdb793be3bd",
+      "redistributed": false
+    },
+    {
+      "source": "research-team/coordinator/kronos-training-full-comparison/final-matched2025-comparison-summary.json",
+      "sha256": "e010b0f2cea8af25920e403c766cae4829ac532d41e634c48ccaa14773eb0b82",
+      "redistributed": false
+    }
+  ]
+}

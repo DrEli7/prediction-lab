@@ -1,0 +1,72 @@
+{
+  "cohort": "2025 already-observed historical research, not a new blind test",
+  "assets": [
+    "BTCUSDT",
+    "ETHUSDT",
+    "SPY",
+    "QQQ"
+  ],
+  "horizons": [
+    5,
+    20
+  ],
+  "originsPerCell": 64,
+  "rowsPerModel": 512,
+  "models": [
+    {
+      "model": "KronosSmall-FrozenTokenizer-Pre2024-PrefixExtendedETF-Target20-FP32-v1",
+      "hits": 259,
+      "n": 512,
+      "accuracy": 0.505859375,
+      "macroBalancedAccuracy": 0.46562706061821046,
+      "brier": 0.3313755989074707
+    },
+    {
+      "model": "VT-EB2025",
+      "hits": 301,
+      "n": 512,
+      "accuracy": 0.587890625,
+      "macroBalancedAccuracy": 0.482851136918074,
+      "brier": 0.23935830681715914
+    },
+    {
+      "model": "Delayed-Hedge2025",
+      "hits": 298,
+      "n": 512,
+      "accuracy": 0.58203125,
+      "macroBalancedAccuracy": 0.4904683944887571,
+      "brier": 0.24695563101637952
+    },
+    {
+      "model": "MatureDecay-prior2025",
+      "hits": 303,
+      "n": 512,
+      "accuracy": 0.591796875,
+      "macroBalancedAccuracy": 0.4895413614163614,
+      "brier": 0.23653807404115243
+    },
+    {
+      "model": "commonRollingMajority6002025",
+      "hits": 304,
+      "n": 512,
+      "accuracy": 0.59375,
+      "macroBalancedAccuracy": 0.4913576007326007,
+      "brier": 0.23123602111021943
+    },
+    {
+      "model": "originalKronosSmall2025",
+      "hits": 210,
+      "n": 512,
+      "accuracy": 0.41015625,
+      "macroBalancedAccuracy": 0.4985264631763672,
+      "brier": 0.413790225982666
+    }
+  ],
+  "primaryRelease": "MatureDecay-prior",
+  "highestNumericReference": "Common-v3-majority600",
+  "legacyRetained": "VT-EB",
+  "target60Reached": false,
+  "minimumHitsFor60Percent": 308,
+  "promotedForLiveTrading": false,
+  "pUpIsCalibratedWinProbability": false
+}
